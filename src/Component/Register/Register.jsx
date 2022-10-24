@@ -1,34 +1,47 @@
+import { Result } from "postcss";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { UseContext } from "../../Context/AuthContext/AuthContext";
-import image from "./121421-login.gif"
+import AuthContext, { UseContext } from "../../Context/AuthContext/AuthContext";
 
-const LogIn = () => {
-  const{logInUser} = useContext(UseContext)
-  const handleSubmit=(event)=>{
-    event.preventDefault()
+const Register = () => {
+    const {createUser} = useContext(UseContext)
+    const handleSubmit = event=>{
+        event.preventDefault()
         const form = event.target;
+        const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email,password);
-        logInUser(email,password)
+        console.log(name,email,password);
+        createUser(email,password)
         .then(result=>{
-          const user =result.user;
-          console.log(user);
-          alert('successfully log in ')
+            const user= result.user;
+            console.log(user)
+            alert('successfullly register')
         })
-        .catch(error=>{
-          console.error('error',error)
+        .then(error=>{
+            console.error('error', error)
         })
-
-  }
-  
+    }
   return (
+
+
     <form onSubmit={handleSubmit}>
-      <div className="hero min-h-screen bg-base-200 z-50">
+        <div className="hero min-h-screen bg-base-200 z-50">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <div className="card-body">
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Name</span>
+              </label>
+              <input
+                type="text"
+                required
+                name="name"
+                placeholder="name"
+                className="input input-bordered"
+              />
+            </div>
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>
@@ -59,13 +72,12 @@ const LogIn = () => {
               </label>
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-primary">Login</button>
+              <button className="btn btn-primary">Register</button>
             </div>
           </div>
         </div>
         <div className="text-center lg:text-left">
-          <img src={image} alt="" />
-        
+          <img src="" alt="" />
         </div>
       </div>
     </div>
@@ -73,4 +85,4 @@ const LogIn = () => {
   );
 };
 
-export default LogIn;
+export default Register;

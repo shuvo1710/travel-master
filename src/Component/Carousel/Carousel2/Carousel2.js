@@ -11,9 +11,11 @@ import "../style.css";
 
 // import required modules
 import { EffectCoverflow, Pagination } from "swiper";
+import { Link } from "react-router-dom";
 
 
 const Carousel2 = ({items}) => {
+
 
     return (
         <>
@@ -35,14 +37,17 @@ const Carousel2 = ({items}) => {
       >
         {
             items?.map(item=><SwiperSlide>
-                <div className="hero min-h-screen" style={{ backgroundImage: `url(${item?.img})` }}>
-                    <div className="hero-overlay bg-opacity-10"></div>
+              <Link to={`/hotelDetails/${item.id}`}>
+                <div className="hero min-h-screen rounded-lg" style={{ backgroundImage: `url(${item?.img})` }}>
+                    <div className="hero-overlay bg-opacity-10">
                     <div className="hero-content text-center text-neutral-content">
                         <div className="max-w-md">
                         <h1 className="mb-5 text-2xl font-bold">{item?.name}</h1>
                         </div>
                     </div>
+                    </div>
                 </div>
+                </Link>
               </SwiperSlide>)
         } 
       </Swiper>
