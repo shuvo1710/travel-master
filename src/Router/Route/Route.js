@@ -5,6 +5,7 @@ import Main from "../../Component/Layout/Main/Main";
 import LogIn from "../../Component/LogIn/LogIn";
 import Register from "../../Component/Register/Register";
 import RoomService from "../../Component/RoomService/RoomService";
+import PrivateRoute from "../../Context/PrivateRoute/PrivateRoute";
 
 export const router = createBrowserRouter([
     {
@@ -30,7 +31,7 @@ export const router = createBrowserRouter([
             },
             {
                 path:"/service/:id",
-                element:<RoomService></RoomService>,
+                element:<PrivateRoute><RoomService></RoomService></PrivateRoute>,
                 loader:({params})=> fetch(`http://localhost:5000/hotels/${params.id}`)
             }
         ]

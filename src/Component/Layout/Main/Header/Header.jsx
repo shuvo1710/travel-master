@@ -28,14 +28,6 @@ const Header = () => {
             </span>
           </Link>
           <ul className="flex items-center hidden space-x-8 lg:flex">
-            <div className="form-control h-9">
-              <input
-                type="text"
-                placeholder="Search"
-                className="input input-bordered"
-              />
-            </div>
-
             <li>
               <Link
                 href="/"
@@ -82,7 +74,7 @@ const Header = () => {
               <li>
                 <Link
                   onClick={handleLogOut}
-                  className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-gray-500 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                  className="inline-flex items-center justify-center h-12 px-6 font-semibold tracking-wide bg-orange-400 text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-orange-600 focus:shadow-outline focus:outline-none"
                   aria-label="Sign up"
                   title="Sign up"
                 >

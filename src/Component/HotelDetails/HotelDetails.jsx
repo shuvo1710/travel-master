@@ -4,10 +4,10 @@ import CatchDate from "../CatchDate/CatchDate";
 
 const HotelDetails = () => {
   const data = useLoaderData()
-  // console.log(data)
+  console.log(data)
   return (
-    <div className="grid grid-cols-2 m-10">
-      <div className=""> 
+    <div className="grid grid-cols-2 " style={{ backgroundImage: `url(${data?.img})`,backgroundSize:"cover",width:"100%"}}>
+      <div className="my-40 mx-12" > 
       <h1 className="text-5xl font-semibold text-orange-500">{data?.name}</h1>
       <p className="text-xl text-gray-800 mt-5">{data?.location_details}</p>
       

@@ -13,10 +13,8 @@ const Home = () => {
             <div className=' text-center'>
                 <img src={travelIcon} alt="" />
             </div>
-            <div className='mt-5 lg:mt-20'>
-            
+            <div className='mt-5 lg:mt-4'> 
            <Carousel></Carousel>
-            
             </div>
         </div>
         
